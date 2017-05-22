@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Add Manufacturer</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:messages globalOnly="true"/>
+		<br/>
+    	Manufacturer Code: <h:inputText value="#{model.manucode}" id="mfcode" p:placeholder="Enter manufacturer code here" required="true" requiredMessage="code is mandatory"/><h:message for="mfcode"/>
+		<br />
+		<br />
+      	Model Code: <h:inputText value="#{model.modelcode}" id="code" p:placeholder="Enter model code here" required="true" requiredMessage="code is mandatory"/><h:message for="code"/>
+		<br />
+		<br />
+		Model Name: <h:inputText value="#{model.modelname}" id="name" p:placeholder="Enter name here"/>
+		<br />
+		<br />
+		Model Description: <h:inputText value="#{model.modeldesc}" id="desc" p:placeholder="Enter desc name here"/>
+		<br />
+		<br />
+		<h:commandButton value="Add" action="#{modelController.addModels(model)}"/>
+		<br/>
+		<h:outputLink value="Models.xhtml">Home</h:outputLink>
+	</h:form>
+</h:body>
+</html>

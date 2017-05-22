@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Models page</title>
+	
+	<f:metadata>
+		<f:event listener="#{modelController.loadModels()}" type="preRenderView" />
+	</f:metadata>
+	
+	<style>
+		table {
+    			font-family: arial, sans-serif;
+    			border-collapse: collapse;
+    			width: 100%;
+		}	
+
+		td, th{
+    			border: 1px solid #dddddd;
+    			text-align: left;
+    			padding: 8px;
+		}
+
+		tr:nth-child(even){
+    			background-color: #dddddd;
+		}
+	</style>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:commandButton value="Add Model" action="AddModel" />
+		<br />
+		<br />
+		<h:dataTable var="m" value="#{modelController.models}">
+			
+			<h:column>
+				<f:facet name="header">Manufacturer Code</f:facet>
+				#{m.manucode}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Model Code</f:facet>
+				#{m.modelcode}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Model Name</f:facet>
+				#{m.modelname}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Model Descricption</f:facet>
+				#{m.modeldesc}
+			</h:column>
+		</h:dataTable> 
+		<br/>
+		<h:outputLink value="MainPage.xhtml">Home</h:outputLink>
+	</h:form>
+</h:body>
+</html>

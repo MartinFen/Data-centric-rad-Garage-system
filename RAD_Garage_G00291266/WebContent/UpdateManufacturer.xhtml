@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Update Manufacturer</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:messages globalOnly="true" />
+		<br/>
+    	Manufacturer Code: <h:inputText value="#{manufacturer.manucode}" />
+		<br />
+		<br />
+      	Manufacturer Name: <h:inputText value="#{manufacturer.manuname}"/>
+		<br />
+		<br />
+		Manufacturer Details: <h:inputText value="#{manufacturer.manudetails}"/>
+		<br />
+		<br />
+		<h:commandButton value="Update" action="#{manufacturerController.updateManufacturer(manufacturer)}"/>
+	</h:form>
+</h:body>
+</html>

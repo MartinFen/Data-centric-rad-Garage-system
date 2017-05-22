@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Search Cars page</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		Price: <h:selectOneMenu value="#{search.priceDropdown}">
+			<f:selectItem itemValue="Less" itemLabel="Less Than" />
+			<f:selectItem itemValue="Greater" itemLabel="Greater than" />
+			<f:selectItem itemValue="Equal" itemLabel="Equal to" />
+		</h:selectOneMenu>
+		<h:inputText value="#{search.price}" id="price" p:placeholder=""/>
+		<br />
+		<br />
+		Colour: <h:inputText value="#{search.colour}" id="col" p:placeholder=""/>
+		<br />
+		<br />
+		Fuel: <h:selectOneMenu value="#{search.fueltype}">
+			<f:selectItem itemValue="petrol" itemLabel="Petrol" />
+			<f:selectItem itemValue="diesel" itemLabel="Diesel" />
+		</h:selectOneMenu>
+		<br/>
+		<br/>
+		<h:commandButton value="Search" action="#{searchController.searchVehicle(search)}"/>
+		<br/>
+		<h:outputLink value="MainPage.xhtml">Home</h:outputLink>
+	</h:form>
+
+	
+</h:body>
+</html>

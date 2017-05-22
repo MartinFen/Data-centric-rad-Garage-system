@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Vehicles page</title>
+
+	<f:metadata>
+		<f:event listener="#{vehicleController.loadVehicles()}" type="preRenderView" />
+	</f:metadata>
+	
+	<style>
+		table {
+    			font-family: arial, sans-serif;
+    			border-collapse: collapse;
+    			width: 100%;
+		}	
+
+		td, th{
+    			border: 1px solid #dddddd;
+    			text-align: left;
+    			padding: 8px;
+		}
+
+		tr:nth-child(even){
+    			background-color: #dddddd;
+		}
+	</style>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:commandButton value="Add Vehicle" action="AddVehicles" />
+		<br />
+		<br />
+		<h:dataTable var="v" value="#{vehicleController.vehicles}">
+			<h:column>
+				<f:facet name="header">Vehicle Reg</f:facet>
+				#{v.reg}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Manufacture Code</f:facet>
+				#{v.manucode}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Model Code</f:facet>
+				#{v.modelcode}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Vehicle Mileage</f:facet>
+				#{v.mileage}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Vehicle Price</f:facet>
+				#{v.price}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Vehicle Colour</f:facet>
+				#{v.colour}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Fuel Type</f:facet>
+				#{v.fueltype}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Action</f:facet>
+				<h:commandLink value="All Details" action="#{vehicleController.loadAllVehicleDetails(v)}"/>
+			</h:column>
+		</h:dataTable>
+		<br />
+		<br />
+		<h:outputLink value="MainPage.xhtml">Home</h:outputLink>
+	</h:form>
+</h:body>
+</html>

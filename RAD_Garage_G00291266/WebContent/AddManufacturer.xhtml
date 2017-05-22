@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Add Manufacturer</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:messages globalOnly="true" />
+		<br/>
+    	Manufacturer Code: <h:inputText value="#{manufacturer.manucode}" id="code" p:placeholder="Enter manufacturer code here" required="true" requiredMessage="code is mandatory"/>
+		<br />
+		<br />
+      	Manufacturer Name: <h:inputText value="#{manufacturer.manuname}" id="name" p:placeholder="Enter manufacturer name here"/>
+		<br />
+		<br />
+		Manufacturer Details: <h:inputText value="#{manufacturer.manudetails}" id="details" p:placeholder="Enter manufacturer details here"/>
+		<br />
+		<br />
+		<h:commandButton value="Add" action="#{manufacturerController.addManufacturer(manufacturer)}"/>
+		<br/>
+		<h:outputLink value="Manufacturers.xhtml">Home</h:outputLink>
+	</h:form>
+</h:body>
+</html>

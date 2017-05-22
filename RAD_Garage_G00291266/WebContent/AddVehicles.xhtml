@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Add Manufacturer</title>
+	<f:metadata>
+		<f:event listener="#{vehicleController.loadVehicles()}" type="preRenderView" />
+	</f:metadata>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:messages globalOnly="true"/>
+		<br/>
+    	Vehicle Reg: <h:inputText value="#{vehicle.reg}" id="vreg" p:placeholder="Enter reg code here" required="true" requiredMessage="reg is mandatory"/><h:message for="vreg"/>
+		<br />
+		<br />
+		Manufacturer Code: <h:inputText value="#{vehicle.manucode}" id="mfcode" p:placeholder="Enter manufacturer code here" required="true" requiredMessage="code is mandatory"/><h:message for="mfcode"/>
+		<br />
+		<br />
+		Model Code: <h:inputText value="#{vehicle.modelcode}" id="mcode" p:placeholder="Enter vehicle model code here" required="true" requiredMessage="model is mandatory"/><h:message for="mcode"/>
+		<br />
+		<br />
+		Vehicle Mileage: <h:inputText value="#{vehicle.mileage}" id="mile" p:placeholder="Enter vehicle milage here"/>
+		<br />
+		<br />
+      	Vehicle Price: <h:inputText value="#{vehicle.price}" id="cost" p:placeholder="Enter vehicle cost here"/>
+		<br />
+		<br />
+		Vehicle Colour: <h:inputText value="#{vehicle.colour}" id="col" p:placeholder="Enter vehicle colour here"/>
+		<br />
+		<br />
+		Fuel Type: <h:selectOneMenu value="#{vehicle.fueltype}">
+			<f:selectItem itemValue="petrol" itemLabel="Petrol" />
+			<f:selectItem itemValue="diesel" itemLabel="Diesel" />
+		</h:selectOneMenu>
+		<br />
+		<br />
+		<h:commandButton value="Add" action="#{vehicleController.addVehicle(vehicle)}"/>
+		<br/>
+		<h:outputLink value="Vehicles.xhtml">Home</h:outputLink>
+	</h:form>
+</h:body>
+</html>
